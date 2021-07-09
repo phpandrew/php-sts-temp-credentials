@@ -140,11 +140,12 @@ $httpRequestMethod  = "GET";
 $host               = "sts.amazonaws.com";
 $accessKey          = "Your_LWA_Access_Key";
 $secretKey          = "Your_LWA_Access_Secret";
+$roleArn 			= "arn:aws:iam::1234567890:role/YourRole";
 $region             = "us-east-1";
 $service            = "sts";
 $queryUrl 			= array("Action" => "AssumeRole",
                             "DurationSeconds" => "3600",
-                            "RoleArn" => "arn:aws:iam::1234567890:role/YourRole",
+                            "RoleArn" => "$$roleArn",
                             "RoleSessionName"=> "php-generatetoken",
                             "Version" => "2011-06-15");
 $uri                = "/";
