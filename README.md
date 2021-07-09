@@ -12,16 +12,18 @@ https://github.com/amzn/selling-partner-api-docs/blob/main/guides/en-US/develope
 - Click the user you want to access
 - Click the **Security credentials** tab
 - Located under **Access Keys** will be your existing keys. 
+- 
+If you did not record your access secret, you will need to generate a new one using the **Create access key** button.
 
 ## Locating your RoleArn
 - Click **Roles** under your aws account
 - Click the admin group you want to access
 - Copy the Role ARN at the top of the page.
 
-If you did not record your access secret, you will need to generate a new one using the **Create access key** button.
-
 ## Enter your credentials
 At the bottom of signaturev4.php, modify the following lines with your credentials
 - $accessKey = Your access key you generated in the above step
 - $secretKey = Your access secret you generated in the above step
 - $roleArn = Enter your Role ARN from your amazon account.
+
+Run the script! Enjoy!
