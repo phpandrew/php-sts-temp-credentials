@@ -90,7 +90,7 @@ function calcualteAwsSignatureAndReturnHeaders($host, $uri, $queryUrl, $requestU
   $headers[] = 'host:' . $host;
   $headers[] = "user-agent:$useragent";
   $headers[] = 'x-amz-date:' . $reqDateTime;
-
+  $headers[] = 'Content-length: '.strlen($data);
   $headers[] = 'content-type:application/x-www-form-urlencoded; charset=utf-8';
   $headers[] = 'Accept: application/json';
 
