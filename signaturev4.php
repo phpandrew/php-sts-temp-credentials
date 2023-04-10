@@ -7,8 +7,9 @@
  * @see  https://developer.amazon.com/docs/login-with-amazon/authorization-code-grant.html
  *
  */
-
-include_once(dirname(__FILE__)."/config.php");
+DEFINE("LOGIN_CLIENTID", "YOUR_KEY_HERE");
+DEFINE("LOGIN_CLIENTSECRET", "YOUR_SECRET_HERE");
+DEFINE("ROLE_ARN", "arn:aws:iam::123456789000:role/AdminRoleName");
 
 class awssignature {
 
@@ -26,7 +27,6 @@ class awssignature {
      * @example
      */
     function __construct() {
-        global $conn, $database;
 
         $this->Amz_AccessKeyId = "";
         $this->Amz_SecretAccessKey = "";
@@ -55,7 +55,6 @@ class awssignature {
      * @example
      */
     public function updateCredentials() {
-        global $conn, $database;
 
         //update credentials if within 16 minutes.
         if((time()+1000) >= $this->Amz_CredentialsExpire) {
@@ -91,6 +90,8 @@ class awssignature {
                 $this->Amz_SecretAccessKey = $SecretAccessKey;
                 $this->Amz_SessionToken = $SessionToken;
                 $this->Amz_CredentialsExpire = $Expiration;
+		    
+		//save these credentials
             }
         }
     }
