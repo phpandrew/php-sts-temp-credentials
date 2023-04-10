@@ -28,10 +28,10 @@ class awssignature {
      */
     function __construct() {
 
-        $this->Amz_AccessKeyId = "";
-        $this->Amz_SecretAccessKey = "";
-        $this->Amz_SessionToken = "";
-        $this->Amz_CredentialsExpire = "";
+        $this->Amz_AccessKeyId = ""; //key id
+        $this->Amz_SecretAccessKey = ""; //secret
+        $this->Amz_SessionToken = ""; //amazon session token
+        $this->Amz_CredentialsExpire = ""; //timestamp of expiration
 
         $this->updateCredentials();
     }
@@ -45,7 +45,7 @@ class awssignature {
         $this->Access_Token = $_Access_Token;
     }
     public function createUserAgent() {
-        return "PHP-sts SPAPI (Language=PHP 7.3.23; Platform=Centos 6)";
+        return "PHP-STS SPAPI (Language=PHP 7.3.23; Platform=Centos 6)";
     }
     /**
      * Update Amazon Session Token. Must be refreshed regularly.
@@ -92,6 +92,7 @@ class awssignature {
                 $this->Amz_CredentialsExpire = $Expiration;
 		    
 		//save these credentials
+		//TODO: Your code here to store these credentials
             }
         }
     }
@@ -270,10 +271,10 @@ class awssignature {
         $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         // Then, after your curl_exec call:
-		$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-		$headersOut = substr($response, 0, $header_size);
-		$body = substr($response, $header_size);
-		$headersOutArray = $this->headersToArray($headersOut);
+	$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+	$headersOut = substr($response, 0, $header_size);
+	$body = substr($response, $header_size);
+	$headersOutArray = $this->headersToArray($headersOut);
         
         $this->ratelimit = (isset($headersOutArray['x-amzn-RateLimit-Limit']) ? $headersOutArray['x-amzn-RateLimit-Limit'] : 0);
 
