@@ -21,9 +21,15 @@ If you did not record your access secret, you will need to generate a new one us
 - Copy the Role ARN at the top of the page.
 
 ## Enter your credentials
-At the bottom of signaturev4.php, modify the following lines with your credentials
-- $accessKey = Your access key you generated in the above step
-- $secretKey = Your access secret you generated in the above step
-- $roleArn = Enter your Role ARN from your amazon account.
+At the top of signaturev4.php, modify the following lines with your credentials
+- LOGIN_CLIENTID = Your Login with Amazon client id
+- LOGIN_CLIENTSECRET = Your Login with Amazon client secret
+- ROLE_ARN = Enter your Role ARN from your amazon account, that you created above
+
+## Running the script
+- Load `test.php`
+- This will generate your credentials for you, as these will rotate on a regular basis. I would suggest you safely, and securely, store these credentials.
+- calculateSignature() will calculate your signature to send to Amazon. Modify the `us-east-1` if your region is different.
+
 
 Run the script! Enjoy!
