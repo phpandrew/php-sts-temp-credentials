@@ -6,7 +6,7 @@ $awssig = new awssignature();
 
 $data = "";
 $method = "GET";
-$host = $this->api_host;
+$host = "sellingpartnerapi-na.amazon.com";
 $queryUrl = "";
 $uri = "/sellers/v1/marketplaceParticipations";
 $requestUrl = "https://$host$uri?$queryUrl";
