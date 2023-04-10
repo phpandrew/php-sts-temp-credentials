@@ -29,7 +29,11 @@ At the top of signaturev4.php, modify the following lines with your credentials
 ## Running the script
 - Load `test.php`
 - This will generate your credentials for you, as these will rotate on a regular basis. I would suggest you safely, and securely, store these credentials.
-- calculateSignature() will calculate your signature to send to Amazon. Modify the `us-east-1` if your region is different.
+- `calculateSignature()` will calculate your signature to send to Amazon. Modify the `us-east-1` if your region is different.
+- `sendRequest()` initiates the request to Amazon.
+
+## Enable debugging
+- Set $debug = true on both `calculateSignature()` and `sendRequest()` to enable debugging output. Compare your sending string to Amazon's error code.
 
 
 Run the script! Enjoy!
